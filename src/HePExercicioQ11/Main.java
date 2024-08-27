@@ -1,20 +1,22 @@
 package HePExercicioQ11;
 
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Funcionario[] funcionarios = new Funcionario[10];
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
-        funcionarios[0] = new Vendedor("Claudia", "423343");
-        funcionarios[1] = new Vendedor("João", "192356");
-        funcionarios[2] = new Vendedor("Fracisco", "424242");
-        funcionarios[3] = new Gerente("Landerson", "478935");
-        funcionarios[4] = new Supervisor("Paula", "38765");
-        funcionarios[5] = new Supervisor("Pedro", "153687");
-        funcionarios[6] = new Vendedor("Josy", "246785");
-        funcionarios[7] = new Vendedor("Carlos", "923456");
-        funcionarios[8] = new Vendedor("Fernanda", "892456");
-        funcionarios[9] = new Vendedor("Julia", "278436");
+        funcionarios.add(new Vendedor("Claudia", "423343"));
+        funcionarios.add(new Vendedor("João", "192356"));
+        funcionarios.add(new Vendedor("Francisco", "424242"));
+        funcionarios.add(new Gerente("Landerson", "478935"));
+        funcionarios.add(new Supervisor("Paula", "38765"));
+        funcionarios.add(new Supervisor("Pedro", "153687"));
+        funcionarios.add(new Vendedor("Josy", "246785"));
+        funcionarios.add(new Vendedor("Carlos", "923456"));
+        funcionarios.add(new Vendedor("Fernanda", "892456"));
+        funcionarios.add(new Vendedor("Julia", "278436"));
 
 
         double custoTotal = 0.0;
@@ -22,15 +24,15 @@ public class Main {
         double custoSupervisores = 0.0;
         double custoVendedores = 0.0;
 
-        for (int i = 0; i < funcionarios.length; i++) {
-            double rendaTotal = funcionarios[i].RendaTotal();
+        for (int i = 0; i < funcionarios.size(); i++) {
+            double rendaTotal = funcionarios.get(i).RendaTotal();
             custoTotal += rendaTotal;
 
-            if (funcionarios[i] instanceof Gerente) {
+            if (funcionarios.get(i) instanceof Gerente) {
                 custoGerentes += rendaTotal;
-            } else if (funcionarios[i] instanceof Supervisor) {
+            } else if (funcionarios.get(i) instanceof Supervisor) {
                 custoSupervisores += rendaTotal;
-            } else if (funcionarios[i] instanceof Vendedor) {
+            } else if (funcionarios.get(i) instanceof Vendedor) {
                 custoVendedores += rendaTotal;
             }
         }
